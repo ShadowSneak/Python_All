@@ -1,42 +1,32 @@
 from random import randint
 
-seq_num = randint(0, 11)
-sim = ('sim', 'Sim', 's', 'S')
-nao = ('nao', 'Nao', 'n', 'N')
-num_maior: tentativa > seq_num
-num_menor: tentativa < seq_num
+seq_num = 12
+num_jogadas = 3
+round = 1
 
-print ('################')
+print ('#######################')
 print ('Ask To Oracle, the game')
-print ('################')
+print ('#######################')
 
-tentativa = int(input('Advinhe a sequencia numérica: '))
-if tentativa == seq_num:
-    print ('você acertou!')
-else:
-    pass
+while (round <= num_jogadas):
 
-    
-
-def tentativa_loop():
+  print ('Tentativa {} de {}'.format(round,num_jogadas))
   tentativa = int(input('Advinhe a sequencia numérica: '))
-print ('O número digitado foi: ', tentativa)
-if tentativa == seq_num:
-    print ('você acertou!')
-else:
-    if num_maior:
-        print('O número digitado está acima do número buscado!')
-    elif num_menor:
-        print('O número digitado está abaixo do número buscado!')
+  num_maior = tentativa > seq_num
+  num_menor = tentativa < seq_num
 
-
-while True:
-  s_n = input('Deseja continuar? (sim/não): ')
-  if s_n in sim:
-    tentativa_loop()
-    
-  elif s_n in nao:
-    break
-
+  if tentativa == seq_num:
+      print ('você acertou!')
+      break
   else:
-    print ('é sim ou nao!')
+    if num_maior:
+      print('O número digitado está acima do número buscado!')
+    elif num_menor:
+      print('O número digitado está abaixo do número buscado!')
+  round += 1
+ 
+  print ('O número digitado foi: ', tentativa)
+  print('----------------------------------------------------')
+while tentativa != seq_num:
+  print ('Game Over!')
+  break
